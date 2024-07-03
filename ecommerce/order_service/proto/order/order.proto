@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "./proto/order";
+
+import "google/protobuf/timestamp.proto";
+
+message Order {
+    string id = 1;
+    string product_id = 2;
+    string user_id = 3;
+    string locate = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+    int64 deleted_at = 7;
+}
+
+message OrderRequest {
+    string id = 1;
+}
+
+message OrderResponse {
+    string message = 1;
+}
+
+message FullInfo {
+    string id = 1;
+    Product product = 2;
+    User user = 3;
+    string locate = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+    int64 deleted_at = 7;
+}
+
+message Product {
+    string id = 1;
+    string product_img = 2;
+    string product_name = 3;
+    double product_price = 4;
+    string product_desc = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+    int64 deleted_at = 8;
+}
+
+message User {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+    int64 deleted_at = 7;
+}

@@ -1,0 +1,2 @@
+INFO: 2024/07/03 09:14:46 Handler.go:158: Success all
+[INFO] 2024/07/03 09:16:39 Handler.go:103: User retrieved successfully: id:"21768821-ca13-4cfe-8a9e-ec049f897545" created_at:{seconds:1719962513 nanos:246751000} updated_at:{seconds:1719962513 nanos:246751000} deleted_at:1719944592

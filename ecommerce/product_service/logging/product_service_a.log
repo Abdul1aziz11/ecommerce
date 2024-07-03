@@ -1,0 +1,5 @@
+[INFO] 2024/07/03 09:20:01 handler.go:103: Product retrieved successfully: id:"4351079d-3400-41e8-bb84-725b65888a9a"  product_img:"link"  product_name:"Apple"  product_price:"200"  product_desc:"Salom"  created_at:{seconds:1719940684  nanos:675953000}  updated_at:{seconds:1719940684  nanos:675953000}
+[INFO] 2024/07/03 09:20:36 handler.go:103: Product retrieved successfully: id:"4351079d-3400-41e8-bb84-725b65888a9a"  product_img:"link"  product_name:"Apple"  product_price:"200"  product_desc:"Salom"  created_at:{seconds:1719940684  nanos:675953000}  updated_at:{seconds:1719940684  nanos:675953000}
+[ERROR] 2024/07/03 09:20:39 handler.go:99: Error getting product: pq: invalid input syntax for type uuid: "4351079d-3400-e8-bb84-725b65888a9a"
+[ERROR] 2024/07/03 09:27:01 handler.go:34: Error binding JSON: json: cannot unmarshal number into Go struct field Product.product_price of type string
+[INFO] 2024/07/03 09:27:13 handler.go:44: Product created successfully: message:"Success created product"
