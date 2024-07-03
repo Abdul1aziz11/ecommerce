@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "/";
+
+service CommentService {
+    rpc GetAllUsers(GetAllOrdersRequest) returns (GetAllOrdersResponse);
+    rpc GetPostById(GetProductByIdRequest) returns (GetProductByIdResponse);
+    rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
+
+    rpc CreateOrder(Order) returns (Order);
+    rpc UpdateOrder(Order) returns (Order);
+    rpc DeleteOrder(IdRequst) returns (DeleteResponse);
+    rpc GetOrder(IdRequst) returns (Order);
+    rpc GetAllOrder(GetAllOrdersRequest) returns (GetAllOrderResponse);
+
+    rpc GetOrdersByPostId(IdRequst) returns (GetAllOrderResponse);
+    rpc GetOrdersByOwnerId(IdRequst) returns (GetAllOrderResponse);
+    rpc GetOrderById(IdRequst) returns (Order);
+}
+
+message DeleteResponse {}
+
+message GetAllOrderResponse {
+    repeated Order all_orders = 1;
+}
+
+message IdRequst {
+    string id = 1;
+}
+
+message GetAllOrdersRequest {
+    int64 page = 1;
+    int64 limit = 2;
+}
+
+message GetAllOrdersResponse {
+    repeated Users all_users = 1;
+}
+
+message GetProductByIdRequest {
+    string prodduct_id = 1;
+}
+
+message GetProductByIdResponse {
+    Product Product = 1;
+    User post_writer = 2;
+    repeated Order orders = 3;
+}
+
+message GetUserByIdRequest {
+    string owner_id = 1;
+}
+
+message GetUserByIdResponse {
+    User owner_info = 1;
+    repeated Posts all_posts = 2;
+}
+
+message Posts {
+    string id = 1;
+    string user_id = 2;
+    string content = 3;
+    string title = 4;
+    int64 views = 5;
+    string category = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    repeated Orders all_comments = 11;
+}
+
+message Orders {
+    string id = 1;
+    string content = 2;
+    string post_id = 3;
+    string owner_id = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    User order_writer = 7;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    string last_name = 3;
+    string username = 4;
+    string email = 5;
+    string password = 6;
+    string refresh_token = 7;
+    string created_at = 8;
+    string updated_at = 9;
+}
+
+message Users {
+    string id = 1;
+    string name = 2;
+    string last_name = 3;
+    string username = 4;
+    string email = 5;
+    string password = 6;
+    string refresh_token = 7;
+    string created_at = 8;
+    string updated_at = 9;
+    repeated Posts all_posts = 10;
+}
+
+message Order {
+    string id = 1;
+    string content = 2;
+    string post_id = 3;
+    string owner_id = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+message Product {
+    string id = 1;
+    string user_id = 2;
+    string content = 3;
+    string title = 4;
+    int64 views = 5;
+    string category = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    repeated Order all_orders = 11;
+}

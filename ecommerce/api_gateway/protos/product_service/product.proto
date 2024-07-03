@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package product;
+
+option go_package = "/";
+
+service ProdcutService {
+    rpc Create(Product) returns (Product);
+    rpc Update(Product) returns (Product);
+    rpc Delete(GetRequest) returns (checkResponse);
+    rpc GetProduct(GetRequest) returns (ProductResponse); 
+    rpc GetAllProducts(GetAllProductsRequest) returns (GetProductsByOwnerIdResponse);
+    rpc GetPostsByOwnerId(GetProductsByOwnerIdRequest) returns (GetProductsByOwnerIdRequest);
+}
+
+message GetAllProductsRequest {
+    int64 page = 1;
+    int64 limit = 2;
+}
+
+message checkResponse {
+    bool chack = 1;
+}
+
+message GetProductsByOwnerIdRequest {
+    string owner_id = 1;
+}
+
+message GetProductsByOwnerIdResponse {
+    repeated Product posts = 1;
+}
+
+message GetRequest {
+    string product_id = 1;
+}
+
+message Owner {
+    string id = 1;
+    string name = 2;
+    string last_name = 3;
+    string username = 4;
+    string email = 5;
+    string password = 6;
+    string created_at = 7;
+    string updated_at = 8;
+}
+
+message ProductWithOrder {
+    string id = 1;
+    string content = 2;
+    string title = 3;
+    int64 views = 4;
+    string category = 5;
+    string owner_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    repeated Order all_orders = 9;
+}
+
+message Product {
+    string id = 1;
+    string content = 2;
+    string title = 3;
+    int64 views = 4;
+    string category = 5;
+    string owner_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+}
+
+message ProductResponse {
+    string id = 1;
+    string content = 2;
+    string title = 3;
+    int64 views = 4;
+    string category = 5;
+    string owner_id = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    Owner owner = 9;
+    repeated Order all_orders = 10;
+}
+
+message Order {
+    string id = 1;
+    string content = 2;
+    string createdAt = 3;
+    string updatedAt = 4;
+    string deletedAt = 5;
+    string post_id = 6;
+    string owner_id = 7;
+}
